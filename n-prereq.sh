@@ -67,7 +67,7 @@ if [ "$BITS" = 32 ]; then
 fi
 
 if [ "$OS" = "Ubuntu" ]; then
-    supported_ver=("14.04" "16.04" "16.10" "17.04" "18.04" "19.04" "19.10" "20.04" "20.10")
+    supported_ver=("14.04" "16.04" "16.10" "17.04" "18.04" "19.04" "19.10" "20.04" "20.10" "21.04")
 
     if [[ " ${supported_ver[@]} " =~ " ${VER} " ]]; then        
         supported=1
@@ -121,7 +121,7 @@ echo ""
 
 if [ "$OS" = "Ubuntu" ]; then
     echo "Installing dotnet"
-    wget "https://packages.microsoft.com/config/ubuntu/$SVER/packages-microsoft-prod.deb" -O packages-microsoft-prod.deb
+    wget "https://packages.microsoft.com/config/ubuntu/$VER/packages-microsoft-prod.deb" -O packages-microsoft-prod.deb
     sudo dpkg -i packages-microsoft-prod.deb
     rm packages-microsoft-prod.deb
 

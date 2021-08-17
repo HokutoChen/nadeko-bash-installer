@@ -14,6 +14,28 @@ script_install="n-install.sh"
 script_run="n-run.sh"
 script_arn="n-arn.sh"
 
+# MIGRATION START
+if [ -d "NadekoBot" ]
+then 
+	if [ -d "nadekobot" ]
+	then
+		echo "Both NadekoBot and nadekobot folders exist, migration from 2.x to v3 can't proceed."
+		cd "$root"
+		exit 0
+	fi
+
+	echo "Migrating 2.x to 1.9"
+	mv NadekoBot nadekobot
+	base_migration_folder="nadekobot/src/NadekoBot/bin/Release/netcoreapp2.1"
+	mkdir nadekobot/output
+	mv -f "$base_migration_folder/data" nadekobot/output/data
+	cp nadekobot/src/NadekoBot/credentials.json nadekobot/output
+
+	echo "Old data migration has been set up. However, you must run options 1, 2 and 3 (in that order) for the migration to properly take effect."
+	sleep 1
+fi
+# MIGRATION END
+
 while [ $choice -eq 9 ]; do
 	
 	echo "1. Install Prerequisites"
@@ -65,5 +87,4 @@ while [ $choice -eq 9 ]; do
 done
 
 cd "$root"
-rm "$root/n-menu.sh"
 exit 0

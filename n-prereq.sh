@@ -67,7 +67,7 @@ if [ "$BITS" = 32 ]; then
 fi
 
 if [ "$OS" = "Ubuntu" ]; then
-    supported_ver=("14.04" "16.04" "16.10" "17.04" "18.04" "19.04" "19.10" "20.10")
+    supported_ver=("14.04" "16.04" "16.10" "17.04" "18.04" "19.04" "19.10" "20.04" "20.10")
 
     if [[ " ${supported_ver[@]} " =~ " ${VER} " ]]; then        
         supported=1

@@ -25,6 +25,8 @@ cd "$root"
 
 # move creds from old to new
 mv -f nadekobot_old/output/creds.yml nadekobot/output/creds.yml 1>/dev/null 2>&1
+# also copy credentials.json for migration purposes
+mv -f nadekobot_old/output/credentials.json nadekobot/output/credentials.json 1>/dev/null 2>&1
 
 # on update, strings will be new version, user will have to manually re-add his strings after each update
 # as updates may cause big number of strings to become obsolete, changed, etc
@@ -55,5 +57,5 @@ mv -rf nadekobot/output/data/strings nadekobot/output/data/strings_old 1>/dev/nu
 mv -rf nadekobot/output/data/strings_new nadekobot/output/data/strings 1>/dev/null 2>&1
 
 cd "$root"
-rm "$root/n-install.sh"
+rm "$root/n-install.sh
 exit 0
